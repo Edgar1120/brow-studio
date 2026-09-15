@@ -902,42 +902,110 @@ h2 em {
 /* ==========================================
    RESPONSIVE
 ========================================== */
-
 @media (max-width: 1000px) {
 
     .section {
         padding: 90px 0;
     }
 
+    /* BOTÓN HAMBURGUESA / X */
+
     .menu-button {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        z-index: 2001;
+
+        width: 45px;
+        height: 45px;
+
+        border: none;
+        background: transparent;
+
+        color: #ffffff;
+        font-size: 26px;
+
+        cursor: pointer;
     }
+
+    /* MENÚ LATERAL */
 
     .nav {
         position: fixed;
+
         top: 0;
         right: -100%;
 
-        width: 300px;
+        width: min(320px, 85vw);
         height: 100vh;
 
-        background: var(--black);
+        background: #151115;
 
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
 
-        padding: 120px 40px;
+        padding: 110px 35px 40px;
 
-        transition: 0.4s;
+        gap: 25px;
+
+        z-index: 2000;
+
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.35);
+
+        transition: right 0.4s ease;
     }
+
+    /* CUANDO ESTÁ ABIERTO */
 
     .nav.active {
         right: 0;
     }
 
-    .nav a {
-        font-size: 16px;
+    .nav>a {
+        width: 100%;
+
+        color: #ffffff;
+
+        font-size: 18px;
+
+        padding-bottom: 15px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
+
+    .nav>a:hover {
+        color: var(--fuchsia-light);
+    }
+
+    /* BOTÓN RESERVAR */
+
+    .nav .nav-button {
+        margin-top: 10px;
+
+        border: none;
+
+        text-align: center;
+
+        justify-content: center;
+
+        padding: 16px 20px;
+
+        background: var(--fuchsia);
+
+        color: #ffffff;
+    }
+
+    /* El botón queda por encima del menú */
+
+    .header .menu-button {
+        z-index: 2001;
+    }
+
+
+    /* RESTO DE TU RESPONSIVE */
 
     .intro-grid {
         grid-template-columns: 1fr;
@@ -957,7 +1025,7 @@ h2 em {
         display: block;
     }
 
-    .section-header>p {
+    .section-header > p {
         margin-top: 25px;
     }
 
@@ -978,7 +1046,6 @@ h2 em {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 
